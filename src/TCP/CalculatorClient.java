@@ -12,11 +12,11 @@ public class CalculatorClient {
             DataInputStream dis = new DataInputStream(socket.getInputStream());
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
 
-            System.out.println("Connected to Calculator Server.");
-            System.out.println("Enter equation (e.g., 5 + 3) or type 'bye' to exit:");
+            IO.println("Connected to Calculator Server.");
+            IO.println("Enter equation (e.g., 5 + 3) or type 'bye' to exit:");
 
             while (true) {
-                System.out.print("Enter equation: ");
+                IO.print("Enter equation: ");
                 String input = scanner.nextLine();
 
                 dos.writeUTF(input);
@@ -25,7 +25,7 @@ public class CalculatorClient {
                 }
 
                 String result = dis.readUTF();
-                System.out.println("Server Response: " + result);
+                IO.println("Server Response: " + result);
             }
         } catch (IOException e) {
             e.printStackTrace();

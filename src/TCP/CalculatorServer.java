@@ -7,10 +7,10 @@ import java.util.StringTokenizer;
 public class CalculatorServer {
     static void main() {
         try (ServerSocket serverSocket = new ServerSocket(5000)) {
-            System.out.println("Server is running and waiting for client on port 5000...");
+            IO.println("Server is running and waiting for client on port 5000...");
 
             Socket socket = serverSocket.accept();
-            System.out.println("Client connected!");
+            IO.println("Client connected!");
 
             DataInputStream dis = new DataInputStream(socket.getInputStream());
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
@@ -18,11 +18,11 @@ public class CalculatorServer {
             while (true) {
                 String input = dis.readUTF();
                 if (input.equalsIgnoreCase("bye")) {
-                    System.out.println("Client disconnected.");
+                    IO.println("Client disconnected.");
                     break;
                 }
 
-                System.out.println("Equation received: " + input);
+                IO.println("Equation received: " + input);
                 double result = 0;
 
                 try {

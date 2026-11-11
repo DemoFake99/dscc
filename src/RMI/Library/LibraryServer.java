@@ -1,4 +1,4 @@
-package RMI;
+package RMI.Library;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -12,7 +12,7 @@ public class LibraryServer {
 
             registry.rebind("LibraryService", libraryService);
 
-            System.out.println("Library RMI Server is running...");
+            IO.println("Library RMI Server is running...");
         } catch (Exception e) {
             e.printStackTrace();
         }
